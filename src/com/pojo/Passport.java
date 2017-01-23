@@ -1,9 +1,12 @@
 package com.pojo;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -25,7 +28,22 @@ public class Passport {
 	private String placeofissue;
 
 
+	@OneToOne(mappedBy="passport", cascade=CascadeType.ALL)
+	@JoinColumn(name="passportid")
+	private Employee emp;
 	
+	
+	
+	
+	
+	public Employee getEmp() {
+		return emp;
+	}
+
+	public void setEmp(Employee emp) {
+		this.emp = emp;
+	}
+
 	public Integer getId() {
 		return id;
 	}

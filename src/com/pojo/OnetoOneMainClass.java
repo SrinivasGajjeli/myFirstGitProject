@@ -13,32 +13,36 @@ public class OnetoOneMainClass {
 		
 		 
 		System.out.println("My first git test");
-		Employee emp=new Employee();
-		emp.setEmpname("Srinivas");
-		emp.setEmpdesignation("Associate");
-		emp.setCompany("CTS");
+	/*	Employee emp=new Employee();
+		emp.setEmpname("Srikanth");
+		emp.setEmpdesignation("SSE");
+		emp.setCompany("JDA");
 		emp.setSalary("50k");
 
 		Passport passport=new Passport();
 		
 		passport.setPassportno("K1854534");
-		passport.setExpiry("12March2022");
-		passport.setPlaceofissue("Hyderabad");
+		passport.setExpiry("12March2021");
+		passport.setPlaceofissue("Sircilla");
 		
 		emp.setPassport(passport);
-		
-		
+		passport.setEmp(emp);
+*/		
 		Configuration configure = new AnnotationConfiguration().configure("hibernate.cfg.xml");
 		
 		 SessionFactory sessionFactory = configure.buildSessionFactory();
 		 
 		 
 		 Session session = sessionFactory.openSession();
+		 Passport passportObj = (Passport)session.get(Passport.class, 8);
 		 
-		 Transaction transcation = session.beginTransaction();
+		 System.out.println("passport num is: "+passportObj.getPassportno());
+		 System.out.println("employee name is:"+passportObj.getEmp().getEmpname());
+		 
+		/* Transaction transcation = session.beginTransaction();
 		 
 		 session.save(emp);
-		 transcation.commit();
+		 transcation.commit();*/
 		 
 	}
 }
