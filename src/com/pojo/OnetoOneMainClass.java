@@ -32,6 +32,7 @@ public class OnetoOneMainClass {
 		emp.setPassport(passport);
 		passport.setEmp(emp);
 */		
+		System.out.println("Feroz code");
 		Configuration configure = new AnnotationConfiguration().configure("hibernate.cfg.xml");
 		
 		 SessionFactory sessionFactory = configure.buildSessionFactory();
